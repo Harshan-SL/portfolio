@@ -1,0 +1,149 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    I'm a nineteen year old undergrad in my pre-final year from Chennai with a passion for electronics and communication.
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Professional Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      
+      title="Astronomy and Astrophysics Intern"
+      subtitle="Jun-Jul 2025 at Indian Space Academy(Remote)."
+    >
+    Hands-on data analysis and Hubble parameter estimation.
+    </TimeLineElement>
+    <TimeLineElement
+      title="Summer Intern"
+      subtitle="May-Jun 2025 at NIT-Trichy,(Onsite)."
+    >
+    RF circuit and antenna design research.    
+    </TimeLineElement>
+  </div>
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="B.tech in Electronics and Communication Engineering"
+      subtitle="2023-Present at VIT,Chennai."
+    />
+  </div>
+<!--
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="#" target="_blank"> Certification Name (with link)</a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> Certification Name (with link)</a>
+    </li>
+  </ul>
+ -->
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mx-6">
+
+  <!-- Programming Languages -->
+  <div class="card bg-base-100/80 backdrop-blur-md border border-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]">
+    <div class="card-body items-center text-center">
+      <h3 class="card-title text-lg">Programming Languages</h3>
+      <div class="flex flex-wrap justify-center gap-4 mt-2">
+        <div class="flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">Python</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">R</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">Java</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">Jupyter</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Design & Simulation Tools -->
+  <div class="card bg-base-100/80 backdrop-blur-md border border-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]">
+    <div class="card-body items-center text-center">
+      <h3 class="card-title text-lg">Design & Simulation Tools</h3>
+      <div class="flex flex-wrap justify-center gap-4 mt-2">
+        <div class="flex flex-col items-center">
+          <img src="/icons/cst.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">CST</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/icons/hfss.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">HFSS</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/icons/cadence.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">Virtuoso</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/icons/modelsim.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">ModelSim</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/icons/ltspice.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">LTspice</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">MATLAB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hardware & Embedded -->
+  <div class="card bg-base-100/80 backdrop-blur-md border border-base-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:scale-[1.02]">
+    <div class="card-body items-center text-center">
+      <h3 class="card-title text-lg">Hardware & Embedded</h3>
+      <div class="flex flex-wrap justify-center gap-4 mt-2">
+        <div class="flex flex-col items-center">
+          <img src="/icons/keil.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">Keil</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/arduino/arduino-original.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">Arduino</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/icons/8051.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">8051</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <img src="/icons/rfid.svg" class="h-9 w-9 drop-shadow-md" />
+          <span class="text-sm mt-1">RFID</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</BaseLayout>

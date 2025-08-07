@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+
+const projects = [
+  {
+    title: "Miniaturized Microstrip Patch Antenna",
+    img: "/projects/antenna.webp",
+    desc: "Advanced antenna design using 3D printed substrate for enhanced performance and reduced size.",
+    url: "#",
+    badge: "NEW",
+    tags: ["RF"]
+  },
+  {
+    title: "Reconfigurable Antenna with Band Stop FSS",
+    img: "/projects/antenna.webp",
+    desc: "Innovative antenna design incorporating pin diode technology for frequency reconfiguration.",
+    url: "#",
+    tags: ["RF"],
+    badge: "NEW"
+  },
+  {
+    title: "Supernova Cosmology Analysis",
+    img: "/projects/analysis.webp",
+    desc: "Advanced cosmological data analysis using Pantheon+SHOES dataset for universe expansion study.",
+    url: "#",
+    tags: ["DS"]
+  },
+ {
+    title: "Braun Array Multiplier",
+    img: "/projects/chip.webp",
+    desc: "High-performance digital multiplier design implemented using Cadence Virtuoso.",
+    url: "#",
+    tags: ["VLSI"]
+  },
+  {
+    title: "Student Expenditure Analysis",
+    img: "/projects/analysis.webp",
+    desc: "Comprehensive statistical analysis of student spending patterns using R Studio.",
+    url: "#",
+    tags: ["DS"]
+  },
+  {
+    title: "Attendance Management Using RFID",
+    img: "/projects/chip2.webp",
+    desc: "Automated attendance tracking system with RFID card integration and database management.",
+    url: "#",
+    tags: ["RF", "Iot"]
+  },
+  {
+    title: "Bluetooth-Controlled Robot with RFID-Based Access System",
+    img: "/projects/chip2.webp",
+    desc: "This project introduces a Bluetooth-controlled robot integrated with an RFID-based access system.",
+    url: "#",
+    tags: ["RF", "Iot","ROB"]
+  }
+  
+];
+---
+
+<script type="module">
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll("[data-tag-button]");
+    const sections = document.querySelectorAll("[data-project-section]");
+
+    buttons.forEach(btn =>
+      btn.addEventListener("click", () => {
+        const selectedTag = btn.getAttribute("data-tag-button");
+        document.querySelectorAll("[data-tag-button]").forEach(b =>
+          b.classList.remove("btn-primary")
+        );
+        btn.classList.add("btn-primary");
+
+        sections.forEach(section => {
+          const cards = section.querySelectorAll("[data-tags]");
+          cards.forEach(card => {
+            const tags = card.getAttribute("data-tags").split(",");
+            const show = selectedTag === "All" || tags.includes(selectedTag);
+            card.style.display = show ? "" : "none";
+          });
+        });
+      })
+    );
+  });
+</script>
+
+<BaseLayout title="Projects" sideBarActiveItemID="projects">
+  <!-- Filter Buttons -->
+  <div class="flex flex-wrap gap-2 mb-6">
+    <button class="btn btn-outline btn-sm btn-primary" data-tag-button="All">All</button>
+    <button class="btn btn-outline btn-sm" data-tag-button="RF">RF Design</button>
+    <button class="btn btn-outline btn-sm" data-tag-button="DS">Data Science</button>
+    <button class="btn btn-outline btn-sm" data-tag-button="VLSI">VLSI</button>
+    <button class="btn btn-outline btn-sm" data-tag-button="Iot">Iot</button>
+    <button class="btn btn-outline btn-sm" data-tag-button="ROB">Robotics</button>
+  </div>
+
+  <!-- Section 1 -->
+  <div data-project-section>
+    <div class="text-3xl w-full font-bold mb-5">Projects Header</div>
+
+    {projects.map(project => (
+      <div data-tags={project.tags.join(",")}>
+        <HorizontalCard
+          title={project.title}
+          img={project.img}
+          desc={project.desc}
+          url={project.url}
+          badge={project.badge ?? ""}
+        />
+        <div class="divider my-0"></div>
+      </div>
+    ))}
+  </div>
+
+
+  </div>
+</BaseLayout>

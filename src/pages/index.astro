@@ -1,0 +1,115 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+import { getCollection } from "astro:content";
+import createSlug from "../lib/createSlug"
+
+const posts = (await getCollection("blog")).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout sideBarActiveItemID="home">
+  
+        <!-- THEME SWITCH DROPDOWN -->
+        <div class="flex justify-end px-6 pt-4">
+          <div class="dropdown dropdown-bottom dropdown-end">
+            <label tabindex="0" class="btn btn-sm btn-outline">Theme</label>
+            <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-36">
+              <li><button class="theme-btn" data-theme="light">Light</button></li>
+              <li><button class="theme-btn" data-theme="dark">Dark</button></li>
+              <li><button class="theme-btn" data-theme="lofi">Lofi</button></li>
+              <li><button class="theme-btn" data-theme="cupcake">Cupcake</button></li>
+              <li><button class="theme-btn" data-theme="dracula">Dracula</button></li>
+            </ul>
+          </div>
+        </div>
+
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hello 👋</div>
+    <div class="text-5xl font-bold">I'm Harshan</div>
+    <div class="text-3xl py-3 font-bold">Electronics and Communication Student</div>
+    <div class="py-2">
+      <text class="text-lg">
+        Welcome to my personal portfolio. I'm nineteen year old undergrad in my pre-final year from Chennai
+        with a passion for electronics and communication.
+        Over few years, I have developed a strong foundation in embedded systems, digital design, and signal processing.
+        I am passionate about solving real-world problems through innovative hardware and software solutions.
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="https://www.linkedin.com/in/harshansl/" target="_blank"> Let's connect!</a>
+      <a href="/resume.pdf" target="_blank" class="btn btn-outline ml-5">
+        Download Resume
+      </a>
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My Featured Projects {"</>"}</div>
+  </div>
+
+  <HorizontalCard
+    title="Miniaturized Microstrip Patch Antenna"
+    img="/projects/com.webp"
+    desc="Advanced antenna design using 3D printed substrate for enhanced performance and reduced size."
+    url="#"
+    badge="NEW"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Braun Array Multiplier"
+    img="/projects/chip.webp"
+    desc="High-performance digital multiplier design implemented using Cadence Virtuoso."
+    url="#"
+  />
+  <div class="divider my-0"></div>
+  <HorizontalCard
+    title="Reconfigurable Antenna with Band Stop FSS"
+    img="/projects/com.webp"
+    desc="Innovative antenna design incorporating pin diode technology for frequency reconfiguration."
+    url="#"
+    badge="NEW"
+  />
+  <div class="flex justify-center mt-8">
+  <a
+    href="/projects"
+    target="_blank"
+    class="btn btn-outline px-4 py-3 text-lg rounded-lg border-primary text-primary hover:bg-primary hover:text-white transition duration-300"
+  >
+    More Projects
+  </a>
+</div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+
+  {
+    last_posts.map((post) => (
+      <>
+        <HorizontalCard
+          title={post.data.title}
+          img={post.data.heroImage}
+          desc={post.data.description}
+          url={"/blog/" + createSlug(post.data.title, post.slug)}
+          target="_self"
+          badge={post.data.badge}
+        />
+        
+        <div class="divider my-0" />
+      </>
+      
+    ))
+  }
+  <div class="flex justify-center mt-8">
+  <a
+    href="/blog"
+    target="_blank"
+    class="btn btn-outline px-6 py-3 text-lg rounded-lg border-primary text-primary hover:bg-primary hover:text-white transition duration-300"
+  >
+      More Blog Posts
+  </a>
+</div>
+
+</BaseLayout>
