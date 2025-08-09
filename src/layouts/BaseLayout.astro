@@ -18,7 +18,7 @@ const {
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dracula">
+<html lang="en" data-theme="lofi">
   <head>
     <BaseHead title={title} description={description} image={image} ogType={ogType} />
     {TRANSITION_API && <ClientRouter />}
@@ -38,7 +38,7 @@ const {
       </div>
       {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
     </div>
-    <!-- THEME SCRIPT -->
+    <!-- 
     <script>
       const setTheme = (theme) => {
         document.documentElement.setAttribute("data-theme", theme);
@@ -54,6 +54,7 @@ const {
         });
       });
     </script>
+    THEME SCRIPT -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script>
   function blogFilter() {
